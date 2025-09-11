@@ -1,8 +1,23 @@
 import random
 import time
 import pygame
+import sys
+
+pygame.init()
+
+res = (720,720)
+screen = pygame.display.set_mode()
+white = (210, 210, 210)
+grey = (170, 170, 170)
+darkGrey = (100, 100, 100)
+
+width = screen.get_width
+height = screen.get_height
+smallfont = pygame.font.SysFont('Corbel',35)
+text = smallfont.render('quit' ,True, white)
 
 def genAlgorithm():
+    """generates numbers for the amount of nearby mines"""
     try:
         temp = random.randint(1, 100)
         if temp < 11:
@@ -21,15 +36,13 @@ def genAlgorithm():
             mineNum = 7
         elif temp < 66:
             mineNum = 8
-        elif temp = 66:
+        elif temp == 66:
             mineNum = 9
         else:
             mineNum = 0
-
-        pygame.display.set_mode()
 
     except:
         print("Error in world generation algorithm!")
     
     finally:
-        return mineNum
+        print("World generation complete")
